@@ -9,10 +9,21 @@ function submitForm() {
         jsonData[key] = value;
     });
 
-    // Display the JSON data (you can send it to a server or perform other actions)
+    // Display the JSON data (you can remove this if not needed)
     const resultContainer = document.getElementById('result');
     resultContainer.textContent = JSON.stringify(jsonData, null, 2);
-    console.log(jsonData);
+
+    // Send JSON data to the server
+    fetch('http://127.0.0.1:5000/api', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jsonData),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 }
 // Update age value
 document.getElementById('age').addEventListener('input', function() {
