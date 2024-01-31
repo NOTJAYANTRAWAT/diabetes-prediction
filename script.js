@@ -22,7 +22,11 @@ function submitForm() {
         body: JSON.stringify(jsonData),
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        // Display the server response in the results container
+        resultContainer.textContent = JSON.stringify(data, null, 2);
+        console.log(data);
+    })
     .catch(error => console.error('Error:', error));
 }
 // Update age value
