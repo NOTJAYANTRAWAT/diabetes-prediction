@@ -8,6 +8,11 @@ function submitForm() {
     formData.forEach((value, key) => {
         jsonData[key] = value;
     });
+
+    // Display the JSON data (you can remove this if not needed)
+    const resultContainer = document.getElementById('result');
+    resultContainer.textContent = JSON.stringify(jsonData, null, 2);
+
     // Send JSON data to the server
     fetch('http://127.0.0.1:5000/api', {
         method: 'POST',
