@@ -20,10 +20,6 @@ function submitForm() {
         }
     });
 
-    // Display the JSON data (you can remove this if not needed)
-    const resultContainer = document.getElementById('result');
-    resultContainer.textContent = JSON.stringify(jsonData, null, 2);
-
     // Send JSON data to the server
     fetch('https://capstone-flask.onrender.com/api', {
         method: 'POST',
@@ -45,6 +41,8 @@ function submitForm() {
     
         console.log('Result Message:', resultMessage);
     
+        // Set the result message in the result container
+        const resultContainer = document.getElementById('result');
         resultContainer.textContent = resultMessage;
     })
     .catch(error => console.error('Error:', error));
