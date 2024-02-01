@@ -25,7 +25,7 @@ function submitForm() {
     resultContainer.textContent = JSON.stringify(jsonData, null, 2);
 
     // Send JSON data to the server
-    fetch('https://jayant-flask-production.up.railway.app/api', {
+    fetch('https://capstone-flask.onrender.com/api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
