@@ -34,10 +34,18 @@ function submitForm() {
     })
     .then(response => response.json())
     .then(data => {
-        // Display a meaningful message based on the server response
-        const resultMessage = data === 1 ? 'Diabetes detected!' : 'No diabetes detected.';
+        // Log the server response to the console
+        console.log('Server Response:', data);
+    
+        // Extract the prediction value from the server response
+        const prediction = data.prediction;
+    
+        // Display a meaningful message based on the prediction value
+        const resultMessage = prediction == 1 ? 'Diabetes detected!' : 'No diabetes detected.';
+    
+        console.log('Result Message:', resultMessage);
+    
         resultContainer.textContent = resultMessage;
-        console.log(data);
     })
     .catch(error => console.error('Error:', error));
 }
