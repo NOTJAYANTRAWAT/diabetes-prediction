@@ -6,10 +6,26 @@ function submitForm() {
     // Convert form data to JSON
     const jsonData = {};
     formData.forEach((value, key) => {
-        jsonData[key] = value;
+        // Parse the value as an integer for certain fields
+        switch (key) {
+            case 'Age':
+            case 'GenHlth':
+            case 'MentHlth':
+            case 'PhysHlth':
+            case 'Income':
+                jsonData[key] = parseInt(value, 10);
+                break;
+            default:
+                jsonData[key] = value;
+        }
     });
+
+    // Display the JSON data (you can remove this if not needed)
+    const resultContainer = document.getElementById('result');
+    resultContainer.textContent = JSON.stringify(jsonData, null, 2);
+
     // Send JSON data to the server
-    fetch('http://127.0.0.1:5000/api', {
+    fetch('https://jayant-flask-production.up.railway.app/api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -18,12 +34,14 @@ function submitForm() {
     })
     .then(response => response.json())
     .then(data => {
-        // Display the server response in the results container
-        resultContainer.textContent = JSON.stringify(data, null, 2);
+        // Display a meaningful message based on the server response
+        const resultMessage = data === 1 ? 'Diabetes detected!' : 'No diabetes detected.';
+        resultContainer.textContent = resultMessage;
         console.log(data);
     })
     .catch(error => console.error('Error:', error));
 }
+
 // Update age value
 document.getElementById('age').addEventListener('input', function() {
     document.getElementById('ageValue').textContent = this.value;
