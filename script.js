@@ -37,7 +37,7 @@ function submitForm() {
         const prediction = data.prediction;
     
         // Display a meaningful message based on the prediction value
-        const resultMessage = prediction == 1 ? 'Diabetes detected!' : 'No diabetes detected.';
+        const resultMessage = prediction == 1 ? 'Diabetes predicted' : 'No diabetes predicted.';
     
         console.log('Result Message:', resultMessage);
     
