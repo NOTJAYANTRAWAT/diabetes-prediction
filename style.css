@@ -57,8 +57,9 @@ button {
     cursor: pointer;
     padding: 20px 20px;
     transition: 0.3s;
-    border-radius: 5px;
-    margin-right: 20px; /* Add margin between buttons */
+    border-radius: 15px;
+    margin-left: 70px ;
+    margin-right: 50px; /* Add margin between buttons */
 }
 
 /* Change background color of active tab button */

@@ -114,7 +114,50 @@
 
         <div id="kidney" class="tabcontent">
             <h2>Kidney Failure Prediction</h2>
-            <!-- Add your form inputs for kidney failure prediction here -->
+            <form id="kidneyForm">
+                <!-- Age -->
+                <label for="kidneyAge">Age (6-90):</label>
+                <input type="range" id="kidneyAge" name="age" min="6" max="90" required>
+                <span id="kidneyAgeValue">6</span>
+
+                <!-- Blood Pressure -->
+                <label for="bloodPressure">Blood Pressure (50-180):</label>
+                <input type="range" id="bloodPressure" name="blood_pressure" min="50" max="180" required>
+                <span id="bloodPressureValue">50</span>
+
+                <!-- Blood Glucose Random -->
+                <label for="bloodGlucoseRandom">Blood Glucose Random (22-490):</label>
+                <input type="range" id="bloodGlucoseRandom" name="blood_glucose_random" min="22" max="490" required>
+                <span id="bloodGlucoseRandomValue">22</span>
+
+                <!-- Haemoglobin -->
+                <label for="haemoglobin">Haemoglobin (3.1-17):</label>
+                <input type="number" id="haemoglobin" name="haemoglobin" min="3.1" max="17" step="0.1" required>
+
+                <!-- Hypertension -->
+                <label for="hypertension">Hypertension:</label>
+                <select id="hypertension" name="hypertension" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <!-- Diabetes Mellitus -->
+                <label for="diabetesMellitus">Diabetes Mellitus:</label>
+                <select id="diabetesMellitus" name="diabetes_mellitus" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <!-- Appetite -->
+                <label for="appetite">Appetite:</label>
+                <select id="appetite" name="appetite" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <button type="button" onclick="submitKidneyForm()">Predict</button>
+            </form>
+            <div id="kidneyResult"></div>
+            
         </div>
     </div>
 
